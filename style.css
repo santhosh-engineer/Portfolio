@@ -40,7 +40,7 @@ a {
 /* NAVBAR */
 
 .navbar {
-    height: 68px;
+    min-height: 68px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,7 +71,7 @@ a {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 25px;
 }
 
 .nav-links a {
@@ -98,7 +98,7 @@ a {
     margin-left: 7px;
 }
 
-/* GENERAL CARDS */
+/* COMMON */
 
 .card {
     border: 1px solid var(--border);
@@ -220,7 +220,7 @@ a {
     color: #8c98ad;
 }
 
-/* PROFILE CARD */
+/* PROFILE */
 
 .profile-card {
     grid-column: 2;
@@ -281,7 +281,7 @@ a {
     color: #61718c;
 }
 
-/* CREDENTIALS CARD */
+/* CREDENTIALS SUMMARY */
 
 .certification-card {
     grid-column: 2;
@@ -321,11 +321,12 @@ a {
     color: #536581;
 }
 
-.certification-card p {
-    font-size: 9px;
-    color: #78869d;
-    line-height: 1.5;
-    margin-top: 10px;
+.credential-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue);
 }
 
 /* TECHNOLOGY CARD */
@@ -371,11 +372,7 @@ a {
     color: #56617b;
 }
 
-/* PROJECTS */
-
-.projects-section {
-    padding: 95px 0 75px;
-}
+/* SECTION HEADINGS */
 
 .section-heading {
     display: flex;
@@ -396,6 +393,12 @@ a {
     color: var(--muted);
     font-size: 12px;
     line-height: 1.8;
+}
+
+/* PROJECTS */
+
+.projects-section {
+    padding: 95px 0 75px;
 }
 
 .projects-grid {
@@ -567,6 +570,107 @@ a {
     color: var(--blue);
 }
 
+/* CERTIFICATIONS */
+
+.certifications-section {
+    padding: 75px 0;
+    border-top: 1px solid #e2e6ed;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.certification-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 112px;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.certification-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(31, 43, 70, 0.07);
+}
+
+.certification-logo {
+    width: 47px;
+    height: 47px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.microsoft-logo {
+    background: #edf2fc;
+}
+
+.microsoft-mark {
+    width: 21px;
+    height: 21px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+}
+
+.microsoft-mark i:nth-child(1) { background: #f25022; }
+.microsoft-mark i:nth-child(2) { background: #7fba00; }
+.microsoft-mark i:nth-child(3) { background: #00a4ef; }
+.microsoft-mark i:nth-child(4) { background: #ffb900; }
+
+.airflow-logo {
+    background: #eaf5f1;
+    color: #39876b;
+}
+
+.datacamp-logo {
+    background: #edf5e9;
+    color: #4b853c;
+}
+
+.databricks-logo {
+    background: #fff0ed;
+    color: #d64c35;
+}
+
+.certification-info {
+    min-width: 0;
+}
+
+.certification-info h3 {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-top: 7px;
+}
+
+.certification-info p {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+.certification-type {
+    margin-left: auto;
+    flex-shrink: 0;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #edf2fc;
+    color: #4266a5;
+    font-family: var(--mono);
+    font-size: 8px;
+}
+
 /* ABOUT */
 
 .about-section {
@@ -724,8 +828,13 @@ a {
 /* TABLET */
 
 @media (max-width: 850px) {
+
     .container {
         width: min(100% - 32px, 700px);
+    }
+
+    .nav-links {
+        gap: 12px;
     }
 
     .hero-grid {
@@ -754,17 +863,21 @@ a {
     .about-section {
         gap: 30px;
     }
+
+    .certification-type {
+        display: none;
+    }
 }
 
 /* MOBILE */
 
 @media (max-width: 600px) {
+
     .container {
         width: calc(100% - 28px);
     }
 
     .navbar {
-        height: auto;
         min-height: 70px;
         flex-wrap: wrap;
         padding: 12px 0;
@@ -778,12 +891,12 @@ a {
         order: 3;
         width: 100%;
         justify-content: space-between;
-        gap: 10px;
+        gap: 7px;
         padding: 12px 0 5px;
     }
 
     .nav-links a {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .resume-btn {
@@ -854,6 +967,18 @@ a {
         min-height: 410px;
     }
 
+    .certifications-section {
+        padding: 55px 0;
+    }
+
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certification-item {
+        padding: 16px;
+    }
+
     .about-section {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -899,82 +1024,10 @@ a {
     }
 }
 
-/* CERTIFICATIONS */
-
-.certifications-section {
-    padding: 65px 0;
-    border-top: 1px solid #e2e6ed;
-}
-
-.certifications-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-}
-
-.certification-item {
-    display: flex;
-    align-items: center;
-    gap: 17px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 17px;
-    padding: 22px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.certification-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(31, 43, 70, 0.06);
-}
-
-.certification-logo {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
-    border-radius: 13px;
-    font-size: 22px;
-    font-weight: 800;
-}
-
-.fabric-logo {
-    color: #9560bd;
-    background: #f1eafa;
-}
-
-.databricks-logo {
-    color: #d64c35;
-    background: #fff0ed;
-}
-
-.certification-item h3 {
-    font-size: 14px;
-    margin-top: 7px;
-}
-
-.certification-item p {
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 6px;
-}
-
-.certificate-arrow {
-    margin-left: auto;
-    color: var(--blue);
-    font-size: 19px;
-}
-
-@media (max-width: 600px) {
-    .certifications-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* SMALL MOBILE */
 
 @media (max-width: 370px) {
+
     .hero-card h1 {
         font-size: 36px;
     }
