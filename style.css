@@ -899,6 +899,79 @@ a {
     }
 }
 
+/* CERTIFICATIONS */
+
+.certifications-section {
+    padding: 65px 0;
+    border-top: 1px solid #e2e6ed;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.certification-item {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 22px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.certification-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(31, 43, 70, 0.06);
+}
+
+.certification-logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.fabric-logo {
+    color: #9560bd;
+    background: #f1eafa;
+}
+
+.databricks-logo {
+    color: #d64c35;
+    background: #fff0ed;
+}
+
+.certification-item h3 {
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+.certification-item p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+.certificate-arrow {
+    margin-left: auto;
+    color: var(--blue);
+    font-size: 19px;
+}
+
+@media (max-width: 600px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* SMALL MOBILE */
 
 @media (max-width: 370px) {
